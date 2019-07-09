@@ -28,7 +28,7 @@
               "app_name": AppName,
               "publisher_name": PublisherName,
               "platform": Platform,
-              "country_code": CountryCode,
+              "country_code": "FR",
               "mau_last_30_days_actual": MauLast30DaysActual
             });
           //}
