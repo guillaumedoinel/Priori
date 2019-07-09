@@ -50,7 +50,8 @@
   myConnector.getSchema = function(schemaCallback) {
 
     // Companies
-    var AppsStats_cols = [{
+    var AppsStats_cols = [
+      {
         id: "app_id",
         alias: "App ID",
         dataType: tableau.dataTypeEnum.string
@@ -82,9 +83,9 @@
       }
     ];
     var AppsStats_Schema = {
-      id: "Companies", // table.tableInfo.id
-      alias: "Companies",
-      columns: Companies_cols
+      id: "Apps", // table.tableInfo.id
+      alias: "Apps",
+      columns: AppsStats_cols
     };
 
     // It's only when several schemas are passed to this function that the getData function is called several times
