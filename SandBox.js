@@ -22,8 +22,8 @@
           var appTableData = [];
           var countryList = appJSON.country_codes;
           //for (var iC = 0, lenC = countryList.length; iC < lenC; iC++) {
-          //  var CountryCode = countryList[iC];
-            var MauLast30DaysActual = appJSON.metrics_by_country.FR.mau_last_30_days_actual;
+            var CountryCode = "FR";
+            var MauLast30DaysActual = appJSON.metrics_by_country.[CountryCode].mau_last_30_days_actual;
             var MauLast30DaysGrowthPercent = appJSON.metrics_by_country.FR.mau_last_30_days_growth_percent;
             var DownloadsLastCalMonthActual = appJSON.metrics_by_country.FR.downloads_last_cal_month_actual;
             var DownloadsLastCalMonthGrowthPercent = appJSON.metrics_by_country.FR.downloads_last_cal_month_growth_percent;
