@@ -25,8 +25,8 @@
           //  var CountryCode = countryList[iC];
             var MauLast30DaysActual = appJSON.metrics_by_country.FR.mau_last_30_days_actual;
             var MauLast30DaysGrowthPercent = appJSON.metrics_by_country.FR.mau_last_30_days_growth_percent;
-            var DownloadsLast30DaysActual = appJSON.metrics_by_country.FR.downloads_last_30_days_actual;
-            var DownloadsLast30DaysGrowthPercent = appJSON.metrics_by_country.FR.downloads_last_30_days_growth_percent;
+            var DownloadsLastCalMonthActual = appJSON.metrics_by_country.FR.downloads_last_cal_month_actual;
+            var DownloadsLastCalMonthGrowthPercent = appJSON.metrics_by_country.FR.downloads_last_cal_month_growth_percent;
 
             appTableData.push({
               "app_id": AppID,
@@ -36,8 +36,8 @@
               "country_code": "FR",
               "mau_last_30_days_actual": MauLast30DaysActual,
               "mau_last_30_days_growth_percent": MauLast30DaysGrowthPercent,
-              "downloads_last_30_days_actual": DownloadsLast30DaysActual,
-              "downloads_last_30_days_growth_percent": DownloadsLast30DaysGrowthPercent,
+              "downloads_last_cal_month_actual": DownloadsLastCalMonthActual,
+              "downloads_last_cal_month_growth_percent": DownloadsLastCalMonthGrowthPercent,
               "total_rating": TotalRating
             });
           //}
@@ -91,17 +91,17 @@
       {
         id: "mau_last_30_days_growth_percent",
         alias: "MAU last 30 days growth percent",
+        dataType: tableau.dataTypeEnum.float
+      },
+      {
+        id: "downloads_last_cal_month_actual",
+        alias: "Downloads last cal month",
         dataType: tableau.dataTypeEnum.int
       },
       {
-        id: "downloads_last_30_days_actual",
-        alias: "Downloads last 30 days",
-        dataType: tableau.dataTypeEnum.int
-      },
-      {
-        id: "downloads_last_30_days_growth_percent",
-        alias: "Downloads last 30 days growth percent",
-        dataType: tableau.dataTypeEnum.int
+        id: "downloads_last_cal_month_growth_percent",
+        alias: "Downloads last cal month growth percent",
+        dataType: tableau.dataTypeEnum.float
       },
       {
         id: "total_rating",
