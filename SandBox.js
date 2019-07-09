@@ -17,14 +17,12 @@
           var AppName = appJSON.app_name;
           var PublisherName = appJSON.publisher_name;
           var Platform = appJSON.platform;
-          var CountryCode;
-          var MauLast30DaysActual;
 
           var appTableData = [];
           var countryList = appJSON.country_codes;
-          for (var iC = 0, lenC = countryList.length; iC < lenC; iC++) {
-            var CountryCode = countryList[iC];
-            var MauLast30DaysActual = appJSON.metrics_by_country.CountryCode.mau_last_30_days_actual;
+          //for (var iC = 0, lenC = countryList.length; iC < lenC; iC++) {
+          //  var CountryCode = countryList[iC];
+            var MauLast30DaysActual = appJSON.metrics_by_country.FR.mau_last_30_days_actual;
             appTableData.push({
               "app_id": AppID,
               "app_name": AppName,
@@ -33,7 +31,7 @@
               "country_code": CountryCode,
               "mau_last_30_days_actual": MauLast30DaysActual
             });
-          }
+          //}
           p_table.appendRows(appTableData);
         }
       });
