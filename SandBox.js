@@ -17,22 +17,22 @@
           var AppName = appJSON.app_name;
           var PublisherName = appJSON.publisher_name;
           var Platform = appJSON.platform;
-          var CountryCode ;
+          var CountryCode;
           var MauLast30DaysActual;
 
           var appTableData = [];
           var countryList = appJSON.country_codes;
           for (var iC = 0, lenC = countryList.length; iC < lenC; iC++) {
-              var CountryCode = countryList[iC];
-              var MauLast30DaysActual = appJSON.metrics_by_country.CountryCode.mau_last_30_days_actual;
-              appTableData.push({
-                "app_id": AppID,
-                "app_name": AppName,
-                "publisher_name": PublisherName,
-                "platform": Platform,
-                "country_code": CountryCode,
-                "mau_last_30_days_actual": MauLast30DaysActual
-              });
+            var CountryCode = countryList[iC];
+            var MauLast30DaysActual = appJSON.metrics_by_country.CountryCode.mau_last_30_days_actual;
+            appTableData.push({
+              "app_id": AppID,
+              "app_name": AppName,
+              "publisher_name": PublisherName,
+              "platform": Platform,
+              "country_code": CountryCode,
+              "mau_last_30_days_actual": MauLast30DaysActual
+            });
           }
           p_table.appendRows(appTableData);
         }
@@ -95,15 +95,18 @@
   // As a result, you need a way to change the call to the API for each table. The easiest way to do this is to use the table.tableInfo.id value that we set in the table schemas.
   myConnector.getData = function(table, doneCallback) {
 
-
-
+    var appList = ["com.ubercab"];
+    for (var i = 0, len = appList.length; i < len; i++) {
+      getAppStats(appList, table);
+    }
+    doneCallback();
   };
 
   tableau.registerConnector(myConnector);
 
   $(document).ready(function() {
     $("#submitButton").click(function() {
-      tableau.connectionName = "CrunchBase Feed";
+      tableau.connectionName = "Priori Feed";
       tableau.submit();
     });
   });
