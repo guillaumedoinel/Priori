@@ -1154,7 +1154,66 @@
   // As a result, you need a way to change the call to the API for each table. The easiest way to do this is to use the table.tableInfo.id value that we set in the table schemas.
   myConnector.getData = function(table, doneCallback) {
 
-    var appList = ["com.ubercab"];
+    var appList = [
+"com.ubercab",
+"com.grabtaxi.passenger",
+"368677368",
+"com.tranzmate",
+"647268330",
+"529379082",
+"com.limebike",
+"1199780189",
+"me.lyft.android",
+"ee.mtakso.client",
+"498477945",
+"675033630",
+"1436140272",
+"com.tier.app",
+"469463298",
+"com.citymapper.app.release",
+"504597178",
+"com.ridehive.app",
+"fr.chauffeurprive",
+"1439420370",
+"514921710",
+"com.heetch",
+"com.car2go",
+"693137280",
+"657777015",
+"435719709",
+"com.dn.drivenow",
+"1373271535",
+"io.moia.neptune",
+"803227884",
+"com.ghm.carjump",
+"via.rider",
+"com.classco.marcel",
+"es.zitycar.carsharing",
+"1337082334",
+"bvg.berlkonig",
+"1316126020",
+"632718723",
+"com.vulog.carshare.kia",
+"1407339605",
+"1182404712",
+"1189566096",
+"516627231",
+"com.vulog.carshare.eysa",
+"de.cambio.app",
+"1417229204",
+"1435462279",
+"com.rcimobility.renaultmobility.b2c",
+"com.ufo.app",
+"1440512722",
+"com.ada.moovinparis.prod",
+"com.free2moveparis",
+"com.moovel.na.mint",
+"1069029389",
+"1134449799",
+"com.generalmotors.urbanactive.cityone"
+
+    ];
+
     for (var i = 0, len = appList.length; i < len; i++) {
       getAppStats(appList, table);
     }
