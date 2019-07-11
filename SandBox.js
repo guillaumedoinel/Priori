@@ -18,16 +18,19 @@
           var PublisherName = appJSON.publisher_name;
           var Platform = appJSON.platform;
           var TotalRating = appJSON.total_rating;
-
           var appTableData = [];
-          var countryList = appJSON.country_codes;
-          //for (var iC = 0, lenC = countryList.length; iC < lenC; iC++) {
-            var CountryCode = "FR";
-            var MauLast30DaysActual = appJSON.metrics_by_country.[CountryCode].mau_last_30_days_actual;
-            var MauLast30DaysGrowthPercent = appJSON.metrics_by_country.FR.mau_last_30_days_growth_percent;
-            var DownloadsLastCalMonthActual = appJSON.metrics_by_country.FR.downloads_last_cal_month_actual;
-            var DownloadsLastCalMonthGrowthPercent = appJSON.metrics_by_country.FR.downloads_last_cal_month_growth_percent;
+          var MauLast30DaysActual;
+          var MauLast30DaysGrowthPercent;
+          var DownloadsLastCalMonthActual;
+          var DownloadsLastCalMonthGrowthPercent;
 
+          // repeat for each country :(
+
+          if (appJSON.metrics_by_country.FR != null) {
+            MauLast30DaysActual = appJSON.metrics_by_country.FR.mau_last_30_days_actual;
+            MauLast30DaysGrowthPercent = appJSON.metrics_by_country.FR.mau_last_30_days_growth_percent;
+            DownloadsLastCalMonthActual = appJSON.metrics_by_country.FR.downloads_last_cal_month_actual;
+            DownloadsLastCalMonthGrowthPercent = appJSON.metrics_by_country.FR.downloads_last_cal_month_growth_percent;
             appTableData.push({
               "app_id": AppID,
               "app_name": AppName,
@@ -40,7 +43,27 @@
               "downloads_last_cal_month_growth_percent": DownloadsLastCalMonthGrowthPercent,
               "total_rating": TotalRating
             });
-          //}
+          }
+          if (appJSON.metrics_by_country.ZZ != null) {
+            MauLast30DaysActual = appJSON.metrics_by_country.ZZ.mau_last_30_days_actual;
+            MauLast30DaysGrowthPercent = appJSON.metrics_by_country.ZZ.mau_last_30_days_growth_percent;
+            DownloadsLastCalMonthActual = appJSON.metrics_by_country.ZZ.downloads_last_cal_month_actual;
+            DownloadsLastCalMonthGrowthPercent = appJSON.metrics_by_country.ZZ.downloads_last_cal_month_growth_percent;
+            appTableData.push({
+              "app_id": AppID,
+              "app_name": AppName,
+              "publisher_name": PublisherName,
+              "platform": Platform,
+              "country_code": "FR",
+              "mau_last_30_days_actual": MauLast30DaysActual,
+              "mau_last_30_days_growth_percent": MauLast30DaysGrowthPercent,
+              "downloads_last_cal_month_actual": DownloadsLastCalMonthActual,
+              "downloads_last_cal_month_growth_percent": DownloadsLastCalMonthGrowthPercent,
+              "total_rating": TotalRating
+            });
+          }
+
+
           p_table.appendRows(appTableData);
         }
       });
