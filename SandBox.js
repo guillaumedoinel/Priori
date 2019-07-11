@@ -44,7 +44,7 @@
               "total_rating": TotalRating
             });
           }
-          if (appJSON.metrics_by_country.AU != null) {
+          /*if (appJSON.metrics_by_country.AU != null) {
             MauLast30DaysActual = appJSON.metrics_by_country.AU.mau_last_30_days_actual;
             MauLast30DaysGrowthPercent = appJSON.metrics_by_country.AU.mau_last_30_days_growth_percent;
             DownloadsLastCalMonthActual = appJSON.metrics_by_country.AU.downloads_last_cal_month_actual;
@@ -1069,7 +1069,7 @@
               "downloads_last_cal_month_growth_percent": DownloadsLastCalMonthGrowthPercent,
               "total_rating": TotalRating
             });
-          }
+          }*/
 
 
           p_table.appendRows(appTableData);
@@ -1214,9 +1214,8 @@
 
     ];
 
-    for (var i = 0, len = appList.length; i < len; i++) {
-      getAppStats(appList, table);
-    }
+    getAppStats(appList, table);
+
     doneCallback();
   };
 
